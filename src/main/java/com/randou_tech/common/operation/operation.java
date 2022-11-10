@@ -1,0 +1,29 @@
+package com.randou_tech.common.operation;
+
+import com.randou_tech.common.request.HttpClient;
+import com.randou_tech.common.request.HttpResult;
+import com.randou_tech.common.utils.Util;
+import com.randou_tech.constants.RdConstants;
+import com.randou_tech.request.WebServiceRequest;
+
+import java.util.HashMap;
+import java.util.Map;
+import org.apache.http.client.config.RequestConfig;
+
+public class operation {
+    /**
+     * 请求免登地址
+     *
+     * @param request
+     * @param rc
+     * @return HttpResult
+     */
+    public static HttpResult freeLoginDst(WebServiceRequest request, RequestConfig rc) {
+        String url = String.format("%s%s", RdConstants.DEBUG_DOMAIN_API, request.getUri());
+        Map<String,String> params = request.getParameter();
+        Map<String, String> headers = new HashMap<>();
+        headers.put("user-agent", Util.getUa());
+
+        return HttpClient.doGet(url, params, headers, rc);
+    }
+}
