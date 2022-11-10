@@ -6,15 +6,13 @@
 "JAVA": ">=1.8"
 ```
 
-## Installation
+## Download
 
-### Download JDK
+- [Source Code][1]
+- [the latest JAR][2]
 
-todo
-
-### Source Code
-
-todo
+[1]: https://github.com/randouDev/java-sdk
+[2]: https://static.randou-tech.com/sdk/jar/randou_java_sdk-1.0.0.jar
 
 ## Issues
 
