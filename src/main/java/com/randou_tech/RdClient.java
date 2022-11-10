@@ -17,11 +17,6 @@ import javax.servlet.http.HttpServletRequest;
 import org.apache.http.client.config.RequestConfig;
 
 final public class RdClient implements Client {
-
-    private String base_url = "https://openapi.randou-tech.com";
-    private String base_url_debug = "http://openapi.test.randou-tech.cn";
-    private Boolean debug = false;
-
     /* The default credentials provider */
     private Credentials creds;
 
@@ -40,9 +35,9 @@ final public class RdClient implements Client {
     }
 
 
-    public void setDebug(Boolean debug) {
-        this.debug = debug;
-    }
+//    public void setDebug(Boolean debug) {
+//        this.debug = debug;
+//    }
 
 
     @Override

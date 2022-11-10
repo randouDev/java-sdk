@@ -19,7 +19,7 @@ public class operation {
      * @return HttpResult
      */
     public static HttpResult freeLoginDst(WebServiceRequest request, RequestConfig rc) {
-        String url = String.format("%s%s", RdConstants.DEBUG_DOMAIN_API, request.getUri());
+        String url = String.format("%s%s", RdConstants.DOMAIN_API, request.getUri());
         Map<String,String> params = request.getParameter();
         Map<String, String> headers = new HashMap<>();
         headers.put("user-agent", Util.getUa());
