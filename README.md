@@ -3,7 +3,7 @@
 ## Requirements
 
 ```
-"php": ">=7.0"
+"JAVA": ">=1.8"
 ```
 
 ## Installation
