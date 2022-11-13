@@ -10,13 +10,17 @@ import java.util.HashMap;
 import java.util.Map;
 import org.apache.http.client.config.RequestConfig;
 
+/**
+ * The type Operation.
+ */
 public class operation {
+
     /**
      * 请求免登地址
      *
-     * @param request
-     * @param rc
-     * @return HttpResult
+     * @param request the request
+     * @param rc      the rc
+     * @return HttpResult http result
      */
     public static HttpResult freeLoginDst(WebServiceRequest request, RequestConfig rc) {
         String url = String.format("%s%s", RdConstants.DOMAIN_API, request.getUri());

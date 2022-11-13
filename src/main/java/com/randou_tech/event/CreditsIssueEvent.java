@@ -11,15 +11,45 @@ import javax.servlet.http.HttpServletRequest;
  * 加积分事件
  */
 public class CreditsIssueEvent extends BaseEvent {
+
+    /**
+     * The Uid.
+     */
     public String uid;
+    /**
+     * The Mall no.
+     */
     public String mall_no;
+    /**
+     * The Credits.
+     */
     public Integer credits;
+    /**
+     * The Unique no.
+     */
     public String unique_no;
+    /**
+     * The Created at.
+     */
     public Date created_at;
+    /**
+     * The Type.
+     */
     public String type;
+    /**
+     * The Description.
+     */
     public String description;
+    /**
+     * The Ip.
+     */
     public String ip;
 
+    /**
+     * Instantiates a new Credits issue event.
+     *
+     * @param request the request
+     */
     public CreditsIssueEvent(HttpServletRequest request) {
         super(request);
     }

@@ -10,6 +10,9 @@ import javax.servlet.http.HttpServletRequest;
 import org.apache.commons.codec.digest.DigestUtils;
 
 
+/**
+ * The type Signature.
+ */
 public class Signature implements Signer {
 
     public String build(WebServiceRequest request, Credentials cred) {

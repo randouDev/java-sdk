@@ -1,11 +1,22 @@
 package com.randou_tech.constants;
 
+/**
+ * The type Rd constants.
+ */
 public class RdConstants {
 
+    /**
+     * The constant GUEST.
+     */
     public static final String GUEST = "guest";
+    /**
+     * The constant VERSION.
+     */
     public static final String VERSION = "1.0.0";
+    /**
+     * The constant DOMAIN_API.
+     */
     public static final String DOMAIN_API = "https://openapi.randou-tech.com";
-//    public static final String DEBUG_DOMAIN_API = "http://openapi.test.randou-tech.cn";
 
 
     /**

@@ -3,13 +3,18 @@ package com.randou_tech;
 import com.randou_tech.common.utils.Signature;
 import com.randou_tech.contract.Credentials;
 
+/**
+ * The type Client builder.
+ */
 public class ClientBuilder {
+
+
     /**
-     * create default RdClient
+     * Build rd client.
      *
-     * @param appId
-     * @param appSecret
-     * @return RdClient
+     * @param appId     the app id
+     * @param appSecret the app secret
+     * @return the rd client
      */
     public static RdClient build(String appId, String appSecret) {
         return new RdClient(getCredentials(appId,appSecret), getDefaultSignature());

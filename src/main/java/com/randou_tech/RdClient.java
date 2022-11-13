@@ -16,6 +16,9 @@ import com.randou_tech.result.Result;
 import javax.servlet.http.HttpServletRequest;
 import org.apache.http.client.config.RequestConfig;
 
+/**
+ * The type Rd client.
+ */
 final public class RdClient implements Client {
     /* The default credentials provider */
     private Credentials creds;
@@ -24,12 +27,25 @@ final public class RdClient implements Client {
 
     private RequestConfig rc;
 
+    /**
+     * Instantiates a new Rd client.
+     *
+     * @param creds     the creds
+     * @param signature the signature
+     * @param rc        the rc
+     */
     public RdClient(Credentials creds, Signer signature, RequestConfig rc) {
         this.creds = creds;
         this.signature = signature;
         this.rc = rc;
     }
 
+    /**
+     * Instantiates a new Rd client.
+     *
+     * @param creds     the creds
+     * @param signature the signature
+     */
     public RdClient(Credentials creds, Signer signature) {
         this(creds, signature, null);
     }
@@ -48,9 +64,9 @@ final public class RdClient implements Client {
     /**
      * 获取免登地址
      *
-     * @param request
-     * @return
-     * @throws RdException
+     * @param request the request
+     * @return free login dst request
+     * @throws RdException the rd exception
      */
     public Result<FreeLogin> getFreeLoginDstRequest(FreeLoginDstRequest request) throws RdException {
         request.setAppid(creds.getAppId());
@@ -78,8 +94,8 @@ final public class RdClient implements Client {
     /**
      * 解析预扣信息
      *
-     * @param request
-     * @return
+     * @param request the request
+     * @return with holding event
      */
     public WithHoldingEvent withHolding(HttpServletRequest request) {
         if (!signature.verify(creds, request)) {
@@ -91,8 +107,8 @@ final public class RdClient implements Client {
     /**
      * 解析预扣通知
      *
-     * @param request
-     * @return
+     * @param request the request
+     * @return credits notify event
      */
     public CreditsNotifyEvent creditsNotify(HttpServletRequest request) {
         if (!signature.verify(creds, request)) {
@@ -103,8 +119,9 @@ final public class RdClient implements Client {
 
     /**
      * 解析加积分信息
-     * @param request
-     * @return
+     *
+     * @param request the request
+     * @return credits issue event
      */
     public CreditsIssueEvent creditsIssue(HttpServletRequest request) {
         if (!signature.verify(creds, request)) {

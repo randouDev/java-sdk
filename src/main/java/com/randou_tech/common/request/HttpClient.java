@@ -19,7 +19,7 @@ import java.util.*;
 import java.util.concurrent.TimeUnit;
 
 /**
- * http连接工具
+ * The type Http client.
  */
 public class HttpClient {
 
@@ -77,12 +77,10 @@ public class HttpClient {
 
 
     /**
-     * GET请求
-     * 1.支持不带参数的请求
-     * 2.支持参数拼接在URl中的请求
+     * GET请求 1.支持不带参数的请求 2.支持参数拼接在URl中的请求
      *
      * @param url 请求地址
-     * @return 返回值
+     * @return 返回值 http result
      */
     public static HttpResult doGet(String url) {
         return doGet(url, null, null, null);
@@ -93,7 +91,7 @@ public class HttpClient {
      *
      * @param url    请求地址
      * @param params 请求参数
-     * @return 返回值
+     * @return 返回值 http result
      */
     public static HttpResult doGet(String url, Map<String, String> params) {
         return doGet(url, params, null, null);
@@ -103,9 +101,10 @@ public class HttpClient {
      * Get 请求：指定请求头，请求参数
      *
      * @param url     请求地址
-     * @param headers 请求头参数
      * @param params  请求参数
-     * @return HttpResult
+     * @param headers 请求头参数
+     * @param rc      the rc
+     * @return HttpResult http result
      */
     public static HttpResult doGet(String url, Map<String, String> params, Map<String, String> headers, RequestConfig rc) {
         try {
@@ -135,8 +134,8 @@ public class HttpClient {
     /**
      * 执行请求
      *
-     * @param request
-     * @return HttpResult
+     * @param request the request
+     * @return HttpResult http result
      */
     public static HttpResult execute(HttpRequestBase request) {
         try (CloseableHttpResponse response = httpClient.execute(request)) {
@@ -152,7 +151,7 @@ public class HttpClient {
      * 将请求参数处理为 NameValuePair
      *
      * @param params 请求参数Map
-     * @return List<NameValuePair>
+     * @return List<NameValuePair> list
      */
     public static List<NameValuePair> convertParams2NVPS(Map<String, Object> params) {
         if (!params.isEmpty()) {

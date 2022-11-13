@@ -8,13 +8,37 @@ import javax.servlet.http.HttpServletRequest;
  * 订单结果通知事件
  */
 public class CreditsNotifyEvent extends BaseEvent {
+
+    /**
+     * The Uid.
+     */
     public String uid;
+    /**
+     * The Mall no.
+     */
     public String mall_no;
+    /**
+     * The Order no.
+     */
     public String orderNo;
+    /**
+     * The Biz no.
+     */
     public String bizNo;
+    /**
+     * The Status.
+     */
     public String status;
+    /**
+     * The Message.
+     */
     public String message;
 
+    /**
+     * Instantiates a new Credits notify event.
+     *
+     * @param request the request
+     */
     public CreditsNotifyEvent(HttpServletRequest request) {
         super(request);
     }

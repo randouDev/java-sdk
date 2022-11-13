@@ -10,6 +10,9 @@ import java.util.Map;
  */
 public class FreeLoginDstRequest extends WebServiceRequest {
 
+    /**
+     * The Uri.
+     */
     final protected String uri="autoLogin";
     private String uid = RdConstants.GUEST;
     private Integer credits = 0;
@@ -18,42 +21,87 @@ public class FreeLoginDstRequest extends WebServiceRequest {
     private String mall_no = "";
 
 
+    /**
+     * Instantiates a new Free login dst request.
+     */
     public FreeLoginDstRequest() {
         super();
     }
 
 
+    /**
+     * Sets credits.
+     *
+     * @param credits the credits
+     * @return the credits
+     */
     public FreeLoginDstRequest setCredits(Integer credits) {
         this.credits = credits;
         return this;
     }
 
+    /**
+     * Sets uid.
+     *
+     * @param uid the uid
+     * @return the uid
+     */
     public FreeLoginDstRequest setUid(String uid) {
         this.uid = uid;
         return this;
     }
 
+    /**
+     * Sets redirect.
+     *
+     * @param redirect the redirect
+     * @return the redirect
+     */
     public FreeLoginDstRequest setRedirect(String redirect) {
         this.redirect = redirect;
         return this;
     }
 
+    /**
+     * Sets mall no.
+     *
+     * @param mall_no the mall no
+     * @return the mall no
+     */
     public FreeLoginDstRequest setMallNo(String mall_no) {
         this.mall_no = mall_no;
         return this;
     }
 
+    /**
+     * Sets grade.
+     *
+     * @param grade the grade
+     * @return the grade
+     */
     public FreeLoginDstRequest setGrade(Integer grade) {
         this.grade = grade;
         return this;
     }
 
+    /**
+     * Sets timestamp str.
+     *
+     * @param ts the ts
+     * @return the timestamp str
+     */
     public FreeLoginDstRequest setTimestampStr(String ts) {
         this.timestampStr = ts;
         return this;
     }
 
 
+    /**
+     * Sets nonce str.
+     *
+     * @param str the str
+     * @return the nonce str
+     */
     public FreeLoginDstRequest setNonceStr(String str) {
         this.nonce_str = str;
         return this;

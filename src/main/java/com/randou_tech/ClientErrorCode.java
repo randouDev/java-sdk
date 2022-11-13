@@ -1,5 +1,8 @@
 package com.randou_tech;
 
+/**
+ * The interface Client error code.
+ */
 public interface ClientErrorCode {
 
     /**
@@ -8,8 +11,7 @@ public interface ClientErrorCode {
     static final String UNKNOWN = "Unknown";
 
     /**
-     * Unknown host. This error is returned when a
-     * {@link java.net.UnknownHostException} is thrown.
+     * Unknown host. This error is returned when a {@link java.net.UnknownHostException} is thrown.
      */
     static final String UNKNOWN_HOST = "UnknownHost";
 

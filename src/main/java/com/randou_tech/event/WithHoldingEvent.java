@@ -13,17 +13,53 @@ import javax.servlet.http.HttpServletRequest;
  * 积分预扣事件
  */
 public class WithHoldingEvent extends BaseEvent {
+
+    /**
+     * The Uid.
+     */
     public String uid;
+    /**
+     * The Mall no.
+     */
     public String mall_no;
+    /**
+     * The Credits.
+     */
     public Integer credits;
+    /**
+     * The Order no.
+     */
     public String orderNo;
+    /**
+     * The Created at.
+     */
     public Date created_at;
+    /**
+     * The Type.
+     */
     public String type;
+    /**
+     * The Description.
+     */
     public String description;
+    /**
+     * The Subsidy fee.
+     */
     public Integer subsidy_fee;
+    /**
+     * The Ip.
+     */
     public String ip;
+    /**
+     * The Redeem detail.
+     */
     public RedeemDetail redeem_detail;
 
+    /**
+     * Instantiates a new With holding event.
+     *
+     * @param request the request
+     */
     public WithHoldingEvent(HttpServletRequest request) {
         super(request);
     }

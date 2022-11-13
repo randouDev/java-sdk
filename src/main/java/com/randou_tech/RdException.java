@@ -1,5 +1,8 @@
 package com.randou_tech;
 
+/**
+ * The type Rd exception.
+ */
 public class RdException extends RuntimeException{
     private String errorMessage;
     private String errorCode;
@@ -14,8 +17,7 @@ public class RdException extends RuntimeException{
     /**
      * Creates an instance with error message.
      *
-     * @param errorMessage
-     *            Error message.
+     * @param errorMessage Error message.
      */
     public RdException(String errorMessage) {
         this(errorMessage, (Throwable) null);
@@ -24,8 +26,7 @@ public class RdException extends RuntimeException{
     /**
      * Creates an instance with an exception
      *
-     * @param cause
-     *            An exception.
+     * @param cause An exception.
      */
     public RdException(Throwable cause) {
         this(null, cause);
@@ -34,10 +35,8 @@ public class RdException extends RuntimeException{
     /**
      * Creates an instance with error message and an exception.
      *
-     * @param errorMessage
-     *            Error message.
-     * @param cause
-     *            An exception.
+     * @param errorMessage Error message.
+     * @param cause        An exception.
      */
     public RdException(String errorMessage, Throwable cause) {
         super(null, cause);
@@ -48,26 +47,20 @@ public class RdException extends RuntimeException{
     /**
      * Creates an instance with error message, error code, request Id
      *
-     * @param errorMessage
-     *            Error message.
-     * @param errorCode
-     *            Error code, which typically is from a set of predefined
-     *            errors. The handler code could do action based on this.
+     * @param errorMessage Error message.
+     * @param errorCode    Error code, which typically is from a set of predefined
+     *                     errors. The handler code could do action based on this.
      */
     public RdException(String errorMessage, String errorCode) {
         this(errorMessage, errorCode, null);
     }
 
     /**
-     * Creates an instance with error message, error code, request Id and an
-     * exception.
+     * Creates an instance with error message, error code, request Id and an exception.
      *
-     * @param errorMessage
-     *            Error message.
-     * @param errorCode
-     *            Error code.
-     * @param cause
-     *            An exception.
+     * @param errorMessage Error message.
+     * @param errorCode    Error code.
+     * @param cause        An exception.
      */
     public RdException(String errorMessage, String errorCode, Throwable cause) {
         this(errorMessage, cause);

@@ -22,8 +22,8 @@ public class ClientCredentials implements Credentials {
     /**
      * create cred
      *
-     * @param appId
-     * @param appSecret
+     * @param appId     the app id
+     * @param appSecret the app secret
      */
     ClientCredentials(String appId, String appSecret) {
        this.appId=appId;
