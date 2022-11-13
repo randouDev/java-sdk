@@ -151,7 +151,7 @@ public class HttpClient {
      * 将请求参数处理为 NameValuePair
      *
      * @param params 请求参数Map
-     * @return List<NameValuePair> list
+     * @return
      */
     public static List<NameValuePair> convertParams2NVPS(Map<String, Object> params) {
         if (!params.isEmpty()) {
