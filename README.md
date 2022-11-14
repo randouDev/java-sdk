@@ -7,13 +7,26 @@
 ```
 
 
-## Download
+## Installment
 
-- [Source Code][1]
-- [the latest JAR][2]
+### Maven
+```
+<dependency>
+  <groupId>com.randou-tech</groupId>
+  <artifactId>randou_java_sdk</artifactId>
+  <version>1.0.0</version>
+</dependency>
+```
 
-[1]: https://github.com/randouDev/java-sdk
-[2]: https://static.randou-tech.com/sdk/jar/randou_java_sdk-1.0.0.jar
+### Gradle
+
+```
+implementation 'com.randou-tech:randou_java_sdk:1.0.0'
+```
+
+### [Source Code Download](https://github.com/randouDev/java-sdk)
+
+
 
 ## Issues
 
