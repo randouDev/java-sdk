@@ -8,6 +8,10 @@
   <artifactId>randou_java_sdk</artifactId>
   <version>1.0.0</version>
 
+  <name>randou_java_sdk</name>
+  <url>https://randou-tech.com</url>
+  <description>Randou Mall SDK for JAVA</description>
+
   <licenses>
     <license>
       <name>The Apache Software License, Version 2.0</name>
