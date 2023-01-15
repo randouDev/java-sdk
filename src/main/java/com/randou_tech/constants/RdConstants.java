@@ -21,6 +21,14 @@ public class RdConstants {
 
     /**
      * 预扣事件类型
+     * 商品兑换
      */
     public static final String WITHHOLDING_TYPE_REDEEM = "REDEEM";
+
+
+    /**
+     * 预扣事件类型
+     * 参与抽奖
+     */
+    public static final String WITHHOLDING_TYPE_DRAWINGGAME = "DRAWINGGAME";
 }

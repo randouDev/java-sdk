@@ -54,6 +54,10 @@ public class WithHoldingEvent extends BaseEvent {
      * The Redeem detail.
      */
     public RedeemDetail redeem_detail;
+    /**
+     * The drawing game detail.
+     */
+    public DrawingGameDetail drawinggame_detail;
 
     /**
      * Instantiates a new With holding event.
@@ -85,6 +89,8 @@ public class WithHoldingEvent extends BaseEvent {
         if (this.type.equals(RdConstants.WITHHOLDING_TYPE_REDEEM)) {
 //            解析json
             this.redeem_detail = JSONObject.parseObject(request.getParameter("redeem_detail"), RedeemDetail.class);
+        } else if (this.type.equals(RdConstants.WITHHOLDING_TYPE_DRAWINGGAME)) {
+            this.drawinggame_detail = JSONObject.parseObject(request.getParameter("drawinggame_detail"), DrawingGameDetail.class);
         }
     }
 
@@ -101,6 +107,7 @@ public class WithHoldingEvent extends BaseEvent {
             ", subsidy_fee=" + subsidy_fee +
             ", ip='" + ip + '\'' +
             ", redeem_detail=" + redeem_detail.toString() +
+            ", drawinggame_detail=" + drawinggame_detail.toString() +
             '}';
     }
 }
