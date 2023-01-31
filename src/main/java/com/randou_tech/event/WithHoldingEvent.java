@@ -43,10 +43,6 @@ public class WithHoldingEvent extends BaseEvent {
      */
     public String description;
     /**
-     * The Subsidy fee.
-     */
-    public Integer subsidy_fee;
-    /**
      * The Ip.
      */
     public String ip;
@@ -76,7 +72,6 @@ public class WithHoldingEvent extends BaseEvent {
         this.orderNo = request.getParameter("orderNo");
         this.type = request.getParameter("type");
         this.description = request.getParameter("description");
-        this.subsidy_fee = Integer.valueOf(request.getParameter("subsidy_fee"));
         this.ip = request.getParameter("ip");
 
         SimpleDateFormat formatter = new SimpleDateFormat( "yyyy-MM-dd HH:mm:ss");
@@ -99,15 +94,14 @@ public class WithHoldingEvent extends BaseEvent {
         return "WithHoldingEvent{" +
             "uid='" + uid + '\'' +
             ", mall_no='" + mall_no + '\'' +
-            ", credits=" + credits +
+            ", credits=" + credits + '\'' +
             ", orderNo='" + orderNo + '\'' +
             ", created_at='" + created_at.toString() + '\'' +
             ", type='" + type + '\'' +
             ", description='" + description + '\'' +
-            ", subsidy_fee=" + subsidy_fee +
             ", ip='" + ip + '\'' +
-            ", redeem_detail=" + redeem_detail.toString() +
-            ", drawinggame_detail=" + drawinggame_detail.toString() +
+            ", redeem_detail=" + (redeem_detail != null ? redeem_detail.toString() : "null") + '\'' +
+            ", drawinggame_detail=" + (drawinggame_detail != null ? drawinggame_detail.toString() : "null") + '\'' +
             '}';
     }
 }

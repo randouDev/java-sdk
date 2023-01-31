@@ -22,6 +22,10 @@ public class RedeemDetail {
      */
     public boolean need_review;
     /**
+     * The Subsidy fee.
+     */
+    public Integer subsidy_fee;
+    /**
      * The Shipping address.
      */
     public String shipping_address;
@@ -40,7 +44,8 @@ public class RedeemDetail {
             "product_type='" + product_type + '\'' +
             ", product_name='" + product_name + '\'' +
             ", product_from='" + product_from + '\'' +
-            ", need_review=" + need_review +
+            ", need_review=" + need_review + '\'' +
+            ", subsidy_fee=" + subsidy_fee + '\'' +
             ", shipping_address='" + shipping_address + '\'' +
             ", shipping_receiver='" + shipping_receiver + '\'' +
             ", shipping_receiver_phone='" + shipping_receiver_phone + '\'' +
