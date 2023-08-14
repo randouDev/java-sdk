@@ -12,7 +12,7 @@ public class RdConstants {
     /**
      * The constant VERSION.
      */
-    public static final String VERSION = "1.0.0";
+    public static final String VERSION = "1.1.1";
     /**
      * The constant DOMAIN_API.
      */
@@ -31,4 +31,11 @@ public class RdConstants {
      * 参与抽奖
      */
     public static final String WITHHOLDING_TYPE_DRAWINGGAME = "DRAWINGGAME";
+
+
+    /**
+     * 预扣事件类型
+     * 参与连连看小游戏
+     */
+    public static final String WITHHOLDING_TYPE_LINKGAME = "LINKGAME";
 }

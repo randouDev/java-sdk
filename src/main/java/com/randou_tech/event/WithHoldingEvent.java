@@ -54,6 +54,10 @@ public class WithHoldingEvent extends BaseEvent {
      * The drawing game detail.
      */
     public DrawingGameDetail drawinggame_detail;
+    /**
+     * The drawing game detail.
+     */
+    public LinkGameDetail linkgame_detail;
 
     /**
      * Instantiates a new With holding event.
@@ -86,6 +90,8 @@ public class WithHoldingEvent extends BaseEvent {
             this.redeem_detail = JSONObject.parseObject(request.getParameter("redeem_detail"), RedeemDetail.class);
         } else if (this.type.equals(RdConstants.WITHHOLDING_TYPE_DRAWINGGAME)) {
             this.drawinggame_detail = JSONObject.parseObject(request.getParameter("drawinggame_detail"), DrawingGameDetail.class);
+        } else if (this.type.equals(RdConstants.WITHHOLDING_TYPE_LINKGAME)) {
+            this.linkgame_detail = JSONObject.parseObject(request.getParameter("linkgame_detail"), LinkGameDetail.class);
         }
     }
 
@@ -102,6 +108,7 @@ public class WithHoldingEvent extends BaseEvent {
             ", ip='" + ip + '\'' +
             ", redeem_detail=" + (redeem_detail != null ? redeem_detail.toString() : "null") + '\'' +
             ", drawinggame_detail=" + (drawinggame_detail != null ? drawinggame_detail.toString() : "null") + '\'' +
-            '}';
+            ", linkgame_detail=" + (linkgame_detail != null ? linkgame_detail.toString() : "null") + '\'' +
+        '}';
     }
 }
