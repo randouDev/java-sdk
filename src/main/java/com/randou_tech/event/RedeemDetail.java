@@ -14,6 +14,10 @@ public class RedeemDetail {
      */
     public String product_name;
     /**
+     * The Product no.
+     */
+    public String product_no;
+    /**
      * The Product from.
      */
     public String product_from;
