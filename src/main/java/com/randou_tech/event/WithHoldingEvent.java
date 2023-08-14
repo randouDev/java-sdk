@@ -55,7 +55,7 @@ public class WithHoldingEvent extends BaseEvent {
      */
     public DrawingGameDetail drawinggame_detail;
     /**
-     * The drawing game detail.
+     * The link game detail.
      */
     public LinkGameDetail linkgame_detail;
 
