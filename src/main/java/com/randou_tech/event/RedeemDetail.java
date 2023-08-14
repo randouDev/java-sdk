@@ -48,6 +48,7 @@ public class RedeemDetail {
             "product_type='" + product_type + '\'' +
             ", product_name='" + product_name + '\'' +
             ", product_from='" + product_from + '\'' +
+            ", product_no='" + product_no + '\'' +
             ", need_review=" + need_review + '\'' +
             ", subsidy_fee=" + subsidy_fee + '\'' +
             ", shipping_address='" + shipping_address + '\'' +
