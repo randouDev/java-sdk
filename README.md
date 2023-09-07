@@ -21,7 +21,7 @@
 ### Gradle
 
 ```
-implementation 'com.randou-tech:randou_java_sdk:1.1.1'
+implementation 'com.randou-tech:randou_java_sdk:1.1.2'
 ```
 
 ### [Source Code Download](https://github.com/randouDev/java-sdk)
