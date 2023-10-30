@@ -10,8 +10,12 @@ import com.randou_tech.event.CreditsIssueEvent;
 import com.randou_tech.event.CreditsNotifyEvent;
 import com.randou_tech.event.WithHoldingEvent;
 import com.randou_tech.model.FreeLogin;
+import com.randou_tech.model.Order;
 import com.randou_tech.request.FreeLoginDstRequest;
 import com.randou_tech.common.operation.operation;
+import com.randou_tech.request.order.OrderReviewRequest;
+import com.randou_tech.request.order.OrderShippingCancelRequest;
+import com.randou_tech.request.order.OrderShippingRequest;
 import com.randou_tech.result.Result;
 import javax.servlet.http.HttpServletRequest;
 import org.apache.http.client.config.RequestConfig;
@@ -128,5 +132,62 @@ final public class RdClient implements Client {
             throw new RdException("verify fail");
         }
         return new CreditsIssueEvent(request);
+    }
+
+    /**
+     * 商品快递发货
+     *
+     * @param request
+     * @return
+     * @throws RdException
+     */
+    public Result<Order> orderShipping(OrderShippingRequest request) throws RdException {
+        request.setAppid(creds.getAppId());
+        request.setSign(signature.build(request, creds));
+
+        HttpResult r = operation.assamble(request, rc);
+        if (!r.isSuc()) {
+            return JSONObject.parseObject(r.getStringEntity(), new TypeReference<Result<Order>>() {
+            });
+        }
+        return new Result<Order>().setData(JSONObject.parseObject(r.getStringEntity(), Order.class));
+    }
+
+    /**
+     * 商品审核
+     *
+     * @param request
+     * @return
+     * @throws RdException
+     */
+    public Result<Order> orderReview(OrderReviewRequest request) throws RdException {
+        request.setAppid(creds.getAppId());
+        request.setSign(signature.build(request, creds));
+
+        HttpResult r = operation.assamble(request, rc);
+        if (!r.isSuc()) {
+            return JSONObject.parseObject(r.getStringEntity(), new TypeReference<Result<Order>>() {
+            });
+        }
+        return new Result<Order>().setData(JSONObject.parseObject(r.getStringEntity(), Order.class));
+    }
+
+    /**
+     * 商品取消发货
+     *
+     * @param request
+     * @return
+     * @throws RdException
+     */
+    public Result<Order> orderShippingCancel(OrderShippingCancelRequest request) throws RdException {
+        request.setAppid(creds.getAppId());
+        request.setSign(signature.build(request, creds));
+
+        HttpResult r = operation.assamble(request, rc);
+        if (!r.isSuc()) {
+            return JSONObject.parseObject(r.getStringEntity(), new TypeReference<Result<Order>>() {
+            });
+        }
+        return new Result<Order>().setData(JSONObject.parseObject(r.getStringEntity(), Order.class));
     }
 }

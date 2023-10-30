@@ -12,7 +12,7 @@ public class RdConstants {
     /**
      * The constant VERSION.
      */
-    public static final String VERSION = "1.1.1";
+    public static final String VERSION = "1.2.0";
     /**
      * The constant DOMAIN_API.
      */

@@ -14,14 +14,14 @@
 <dependency>
   <groupId>com.randou-tech</groupId>
   <artifactId>randou_java_sdk</artifactId>
-  <version>1.1.2</version>
+  <version>1.2.0</version>
 </dependency>
 ```
 
 ### Gradle
 
 ```
-implementation 'com.randou-tech:randou_java_sdk:1.1.2'
+implementation 'com.randou-tech:randou_java_sdk:1.2.0'
 ```
 
 ### [Source Code Download](https://github.com/randouDev/java-sdk)

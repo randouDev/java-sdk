@@ -30,4 +30,22 @@ public class operation {
 
         return HttpClient.doGet(url, params, headers, rc);
     }
+
+
+    /**
+     * 拼装请求
+     *
+     * @param request
+     * @param rc
+     * @return HttpResult
+     */
+    public static HttpResult assamble(WebServiceRequest request, RequestConfig rc) {
+        String url = String.format("%s%s", RdConstants.DOMAIN_API, request.getUri());
+        Map<String,String> params = request.getParameter();
+        Map<String, String> headers = new HashMap<>();
+        headers.put("user-agent", Util.getUa());
+
+        return HttpClient.doGet(url, params, headers, rc);
+    }
+
 }

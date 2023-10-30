@@ -1,5 +1,6 @@
 package com.randou_tech.request;
 
+import com.randou_tech.RdException;
 import com.randou_tech.constants.RdConstants;
 
 import java.util.LinkedHashMap;
@@ -118,7 +119,7 @@ public class FreeLoginDstRequest extends WebServiceRequest {
     @Override
     public Map<String, String> getEncryptParameter() {
         if (mall_no.isEmpty()) {
-            throw new IllegalArgumentException("缺少必要参数");
+            throw new RdException("缺少必要参数");
         }
 
         Map<String, String> param = new LinkedHashMap<>();
