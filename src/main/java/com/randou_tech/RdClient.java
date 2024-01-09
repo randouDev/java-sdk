@@ -6,9 +6,7 @@ import com.randou_tech.common.request.HttpResult;
 import com.randou_tech.contract.Client;
 import com.randou_tech.contract.Credentials;
 import com.randou_tech.contract.Signer;
-import com.randou_tech.event.CreditsIssueEvent;
-import com.randou_tech.event.CreditsNotifyEvent;
-import com.randou_tech.event.WithHoldingEvent;
+import com.randou_tech.event.*;
 import com.randou_tech.model.FreeLogin;
 import com.randou_tech.model.Order;
 import com.randou_tech.request.FreeLoginDstRequest;
@@ -189,5 +187,45 @@ final public class RdClient implements Client {
             });
         }
         return new Result<Order>().setData(JSONObject.parseObject(r.getStringEntity(), Order.class));
+    }
+
+    /**
+     * 解析商品直冲事件
+     *
+     * @param request
+     * @return
+     */
+    public GoodsChargeEvent charge(HttpServletRequest request) {
+        if (!signature.verify(creds, request)) {
+            throw new RdException("verify fail");
+        }
+        return new GoodsChargeEvent(request);
+    }
+
+    /**
+     * 解析直冲商品结果查询事件
+     *
+     * @param request
+     * @return
+     */
+    public GoodsChargeQueryEvent chargeQuery(HttpServletRequest request) {
+        if (!signature.verify(creds, request)) {
+            throw new RdException("verify fail");
+        }
+        return new GoodsChargeQueryEvent(request);
+    }
+
+
+    /**
+     * 解析积分明细查询事件
+     *
+     * @param request
+     * @return
+     */
+    public QueryCreditsListEvent queryCreditsList(HttpServletRequest request) {
+        if (!signature.verify(creds, request)) {
+            throw new RdException("verify fail");
+        }
+        return new QueryCreditsListEvent(request);
     }
 }

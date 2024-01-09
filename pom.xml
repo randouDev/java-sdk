@@ -6,7 +6,7 @@
 
   <groupId>com.randou-tech</groupId>
   <artifactId>randou_java_sdk</artifactId>
-  <version>1.2.0</version>
+  <version>1.3.0</version>
 
   <name>randou_java_sdk</name>
   <url>https://randou-tech.com</url>
