@@ -12,12 +12,15 @@ public class RdConstants {
     /**
      * The constant VERSION.
      */
-    public static final String VERSION = "1.3.0";
+    public static final String VERSION = "1.3.1";
     /**
      * The constant DOMAIN_API.
      */
     public static final String DOMAIN_API = "https://openapi.randou-tech.com";
-
+    /**
+     * The constant DEBUG_DOMAIN_API.
+     */
+    public static final String DEBUG_DOMAIN_API = "https://openapi.sandbox.randou-tech.cn";
 
     /**
      * 预扣事件类型

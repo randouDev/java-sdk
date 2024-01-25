@@ -24,6 +24,10 @@ public abstract class WebServiceRequest {
      * The Sign.
      */
     protected String sign;
+    /**
+     * The Url str.
+     */
+    protected String url = "";
 
 
     /**
@@ -35,6 +39,21 @@ public abstract class WebServiceRequest {
     {
         this.sign = sign;
     }
+
+    /**
+     * @param url
+     */
+    public void setUrl(String url) {
+        this.url = url;
+    }
+
+    /**
+     * @return
+     */
+    public String getUrl() {
+        return this.url;
+    }
+
 
     /**
      * Sets appid.

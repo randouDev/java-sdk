@@ -3,6 +3,7 @@ package com.randou_tech;
 import com.alibaba.fastjson.JSONObject;
 import com.alibaba.fastjson.TypeReference;
 import com.randou_tech.common.request.HttpResult;
+import com.randou_tech.constants.RdConstants;
 import com.randou_tech.contract.Client;
 import com.randou_tech.contract.Credentials;
 import com.randou_tech.contract.Signer;
@@ -29,6 +30,9 @@ final public class RdClient implements Client {
 
     private RequestConfig rc;
 
+    private Boolean debug = false;
+
+
     /**
      * Instantiates a new Rd client.
      *
@@ -52,10 +56,24 @@ final public class RdClient implements Client {
         this(creds, signature, null);
     }
 
+    /**
+     * get dest url
+     * @return
+     */
+    private String getUrl() {
+        return debug ? RdConstants.DEBUG_DOMAIN_API : RdConstants.DOMAIN_API;
+    }
 
-//    public void setDebug(Boolean debug) {
-//        this.debug = debug;
-//    }
+    /**
+     * switch env
+     * @param debug
+     * @return
+     */
+    public RdClient setDebug(Boolean debug) {
+        this.debug = debug;
+        return this;
+    }
+
 
 
     @Override
@@ -73,8 +91,9 @@ final public class RdClient implements Client {
     public Result<FreeLogin> getFreeLoginDstRequest(FreeLoginDstRequest request) throws RdException {
         request.setAppid(creds.getAppId());
         request.setSign(signature.build(request, creds));
+        request.setUrl(getUrl());
 
-        HttpResult r = operation.freeLoginDst(request, rc);
+        HttpResult r = operation.assamble(request, rc);
         if (!r.isSuc()) {
             return JSONObject.parseObject(r.getStringEntity(), new TypeReference<Result<FreeLogin>>(){});
         }
@@ -142,6 +161,7 @@ final public class RdClient implements Client {
     public Result<Order> orderShipping(OrderShippingRequest request) throws RdException {
         request.setAppid(creds.getAppId());
         request.setSign(signature.build(request, creds));
+        request.setUrl(getUrl());
 
         HttpResult r = operation.assamble(request, rc);
         if (!r.isSuc()) {
@@ -161,6 +181,7 @@ final public class RdClient implements Client {
     public Result<Order> orderReview(OrderReviewRequest request) throws RdException {
         request.setAppid(creds.getAppId());
         request.setSign(signature.build(request, creds));
+        request.setUrl(getUrl());
 
         HttpResult r = operation.assamble(request, rc);
         if (!r.isSuc()) {
@@ -180,6 +201,7 @@ final public class RdClient implements Client {
     public Result<Order> orderShippingCancel(OrderShippingCancelRequest request) throws RdException {
         request.setAppid(creds.getAppId());
         request.setSign(signature.build(request, creds));
+        request.setUrl(getUrl());
 
         HttpResult r = operation.assamble(request, rc);
         if (!r.isSuc()) {
