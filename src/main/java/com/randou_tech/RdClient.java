@@ -250,4 +250,18 @@ final public class RdClient implements Client {
         }
         return new QueryCreditsListEvent(request);
     }
+
+
+    /**
+     * 解析抽奖通知
+     *
+     * @param request
+     * @return DrawingPrizeEvent
+     */
+    public DrawingPrizeEvent drawingGameSubscription(HttpServletRequest request) {
+        if (!signature.verify(creds, request)) {
+            throw new RdException("verify fail");
+        }
+        return new DrawingPrizeEvent(request);
+    }
 }
