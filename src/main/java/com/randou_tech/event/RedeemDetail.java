@@ -30,6 +30,14 @@ public class RedeemDetail {
      */
     public Integer subsidy_fee;
     /**
+     * The User fee.
+     */
+    public Integer user_fee;
+    /**
+     * The Shipping fee.
+     */
+    public Integer shipping_fee;
+    /**
      * The Charge account.
      */
     public String charge_account;
@@ -56,6 +64,8 @@ public class RedeemDetail {
             ", product_no='" + product_no + '\'' +
             ", need_review=" + need_review + '\'' +
             ", subsidy_fee=" + subsidy_fee + '\'' +
+            ", user_fee=" + user_fee + '\'' +
+            ", shipping_fee=" + shipping_fee + '\'' +
             ", shipping_address='" + shipping_address + '\'' +
             ", shipping_receiver='" + shipping_receiver + '\'' +
             ", shipping_receiver_phone='" + shipping_receiver_phone + '\'' +
