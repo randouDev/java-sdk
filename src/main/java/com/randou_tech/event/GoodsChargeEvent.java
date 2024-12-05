@@ -4,6 +4,7 @@ import com.randou_tech.RdException;
 import com.randou_tech.contract.BaseEvent;
 
 import javax.servlet.http.HttpServletRequest;
+import java.util.Map;
 
 /**
  * 商品直充事件
@@ -23,20 +24,23 @@ public class GoodsChargeEvent extends BaseEvent {
         super(request);
     }
 
+    public GoodsChargeEvent(Map<String, String> param) {
+        super(param);
+    }
 
     public void parse() throws RdException {
-        this.uid = request.getParameter("uid");
-        this.mall_no = request.getParameter("mall_no");
-        this.orderNo = request.getParameter("orderNo");
-        this.product_no = request.getParameter("product_no");
-        this.description = request.getParameter("description");
+        this.uid = getParam("uid");
+        this.mall_no = getParam("mall_no");
+        this.orderNo = getParam("orderNo");
+        this.product_no = getParam("product_no");
+        this.description = getParam("description");
 
-        String account = request.getParameter("account");
+        String account = getParam("account");
         if (null != account && account.length() > 0) {
             this.account = account;
         }
 
-        String bizNo = request.getParameter("bizNo");
+        String bizNo = getParam("bizNo");
         if (null != bizNo && bizNo.length() > 0) {
             this.bizNo = bizNo;
         }

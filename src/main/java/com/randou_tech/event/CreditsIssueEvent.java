@@ -6,6 +6,7 @@ import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 import javax.servlet.http.HttpServletRequest;
+import java.util.Map;
 
 /**
  * 加积分事件
@@ -54,19 +55,22 @@ public class CreditsIssueEvent extends BaseEvent {
         super(request);
     }
 
+    public CreditsIssueEvent(Map<String, String> param) {
+        super(param);
+    }
 
     public void parse() throws RdException {
-        this.uid = request.getParameter("uid");
-        this.mall_no = request.getParameter("mall_no");
-        this.credits = Integer.valueOf(request.getParameter("credits"));
-        this.unique_no = request.getParameter("unique_no");
-        this.type = request.getParameter("type");
-        this.description = request.getParameter("description");
-        this.ip = request.getParameter("ip");
+        this.uid = getParam("uid");
+        this.mall_no = getParam("mall_no");
+        this.credits = Integer.valueOf(getParam("credits"));
+        this.unique_no = getParam("unique_no");
+        this.type = getParam("type");
+        this.description = getParam("description");
+        this.ip = getParam("ip");
 
         SimpleDateFormat formatter = new SimpleDateFormat( "yyyy-MM-dd HH:mm:ss");
         try {
-            this.created_at = formatter.parse(request.getParameter("created_at"));
+            this.created_at = formatter.parse(getParam("created_at"));
         } catch (ParseException e) {
             throw new RdException("parse created_at fail");
         }

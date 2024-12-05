@@ -9,6 +9,7 @@ import javax.servlet.http.HttpServletRequest;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
+import java.util.Map;
 
 /**
  * 抽奖事件
@@ -37,14 +38,17 @@ public class DrawingPrizeEvent extends BaseEvent {
         super(request);
     }
 
+    public DrawingPrizeEvent(Map<String, String> param) {
+        super(param);
+    }
 
     public void parse() throws RdException {
-        this.uid = request.getParameter("uid");
-        this.mall_no = request.getParameter("mall_no");
-        this.credits = Integer.valueOf(request.getParameter("credits"));
-        this.serialNo = request.getParameter("serialNo");
+        this.uid = getParam("uid");
+        this.mall_no = getParam("mall_no");
+        this.credits = Integer.valueOf(getParam("credits"));
+        this.serialNo = getParam("serialNo");
 
-        String hit = request.getParameter("hit");
+        String hit = getParam("hit");
         if (!hit.equals(BooleanConstant.NO) && !hit.equals(BooleanConstant.YES)) {
             throw new RdException("hit field is illegal");
         }
@@ -52,25 +56,25 @@ public class DrawingPrizeEvent extends BaseEvent {
 
         SimpleDateFormat formatter = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
         try {
-            this.created_at = formatter.parse(request.getParameter("created_at"));
+            this.created_at = formatter.parse(getParam("created_at"));
         } catch (ParseException e) {
             throw new RdException("created_at field is illegal");
         }
 
-        this.drawinggame_detail = JSONObject.parseObject(request.getParameter("drawinggame_detail"), DrawingGameDetail.class);
+        this.drawinggame_detail = JSONObject.parseObject(getParam("drawinggame_detail"), DrawingGameDetail.class);
 
 
         if (this.isHit()) {
-            String r = request.getParameter("receive");
+            String r = getParam("receive");
             if (!r.equals(BooleanConstant.NO) && !r.equals(BooleanConstant.YES)) {
                 throw new RdException("prize.receive field is illegal");
             }
             this.receive = r;
 
-            this.prize = JSONObject.parseObject(request.getParameter("prize"), DrawingGamePrize.class);
+            this.prize = JSONObject.parseObject(getParam("prize"), DrawingGamePrize.class);
 
 //            if (this.isReceive() && this.isGoodsPrize()) {
-//                String or = request.getParameter("order_result");
+//                String or = getParam("order_result");
 //                if (!or.equals("success") && !or.equals("fail")) {
 //                    throw new RdException("order_result field is illegal");
 //                }

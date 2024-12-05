@@ -18,6 +18,7 @@ import com.randou_tech.request.order.OrderShippingRequest;
 import com.randou_tech.result.Result;
 import javax.servlet.http.HttpServletRequest;
 import org.apache.http.client.config.RequestConfig;
+import java.util.Map;
 
 /**
  * The type Rd client.
@@ -126,6 +127,19 @@ final public class RdClient implements Client {
     }
 
     /**
+     * 解析预扣信息(通用)
+     *
+     * @param param
+     * @return
+     */
+    public WithHoldingEvent withHolding(Map<String, String> param) {
+        if (!signature.verify(creds, param)) {
+            throw new RdException("verify fail");
+        }
+        return new WithHoldingEvent(param);
+    }
+
+    /**
      * 解析预扣通知
      *
      * @param request the request
@@ -139,6 +153,19 @@ final public class RdClient implements Client {
     }
 
     /**
+     * 解析预扣通知(通用)
+     *
+     * @param param
+     * @return
+     */
+    public CreditsNotifyEvent creditsNotify(Map<String, String> param) {
+        if (!signature.verify(creds, param)) {
+            throw new RdException("verify fail");
+        }
+        return new CreditsNotifyEvent(param);
+    }
+
+    /**
      * 解析加积分信息
      *
      * @param request the request
@@ -149,6 +176,19 @@ final public class RdClient implements Client {
             throw new RdException("verify fail");
         }
         return new CreditsIssueEvent(request);
+    }
+
+    /**
+     * 解析加积分信息(通用)
+     *
+     * @param param
+     * @return
+     */
+    public CreditsIssueEvent creditsIssue(Map<String, String> param) {
+        if (!signature.verify(creds, param)) {
+            throw new RdException("verify fail");
+        }
+        return new CreditsIssueEvent(param);
     }
 
     /**
@@ -225,6 +265,19 @@ final public class RdClient implements Client {
     }
 
     /**
+     * 解析商品直冲事件(通用)
+     *
+     * @param param
+     * @return
+     */
+    public GoodsChargeEvent charge(Map<String, String> param) {
+        if (!signature.verify(creds, param)) {
+            throw new RdException("verify fail");
+        }
+        return new GoodsChargeEvent(param);
+    }
+
+    /**
      * 解析直冲商品结果查询事件
      *
      * @param request
@@ -235,6 +288,19 @@ final public class RdClient implements Client {
             throw new RdException("verify fail");
         }
         return new GoodsChargeQueryEvent(request);
+    }
+
+    /**
+     * 解析直冲商品结果查询事件(通用)
+     *
+     * @param param
+     * @return
+     */
+    public GoodsChargeQueryEvent chargeQuery(Map<String, String> param) {
+        if (!signature.verify(creds, param)) {
+            throw new RdException("verify fail");
+        }
+        return new GoodsChargeQueryEvent(param);
     }
 
 
@@ -251,6 +317,20 @@ final public class RdClient implements Client {
         return new QueryCreditsListEvent(request);
     }
 
+    /**
+     * 解析积分明细查询事件(通用)
+     *
+     * @param param
+     * @return
+     */
+    public QueryCreditsListEvent queryCreditsList(Map<String, String> param) {
+        if (!signature.verify(creds, param)) {
+            throw new RdException("verify fail");
+        }
+        return new QueryCreditsListEvent(param);
+    }
+
+
 
     /**
      * 解析抽奖通知
@@ -263,5 +343,18 @@ final public class RdClient implements Client {
             throw new RdException("verify fail");
         }
         return new DrawingPrizeEvent(request);
+    }
+
+    /**
+     * 解析抽奖通知(通用)
+     *
+     * @param param
+     * @return DrawingPrizeEvent
+     */
+    public DrawingPrizeEvent drawingGameSubscription(Map<String, String> param) {
+        if (!signature.verify(creds, param)) {
+            throw new RdException("verify fail");
+        }
+        return new DrawingPrizeEvent(param);
     }
 }

@@ -3,6 +3,7 @@ package com.randou_tech.event;
 import com.randou_tech.RdException;
 import com.randou_tech.contract.BaseEvent;
 import javax.servlet.http.HttpServletRequest;
+import java.util.Map;
 
 /**
  * 订单结果通知事件
@@ -43,14 +44,17 @@ public class CreditsNotifyEvent extends BaseEvent {
         super(request);
     }
 
+    public CreditsNotifyEvent(Map<String, String> param) {
+        super(param);
+    }
 
     public void parse() throws RdException {
-        this.uid = request.getParameter("uid");
-        this.mall_no = request.getParameter("mall_no");
-        this.orderNo = request.getParameter("orderNo");
-        this.bizNo = request.getParameter("bizNo");
-        this.status = request.getParameter("status");
-        this.message = request.getParameter("message");
+        this.uid = getParam("uid");
+        this.mall_no = getParam("mall_no");
+        this.orderNo = getParam("orderNo");
+        this.bizNo = getParam("bizNo");
+        this.status = getParam("status");
+        this.message = getParam("message");
     }
 
     @Override

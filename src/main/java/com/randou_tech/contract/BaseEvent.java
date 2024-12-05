@@ -1,8 +1,8 @@
 package com.randou_tech.contract;
 
 import com.randou_tech.RdException;
-import java.text.ParseException;
 import javax.servlet.http.HttpServletRequest;
+import java.util.Map;
 
 /**
  * 事件
@@ -15,6 +15,12 @@ public abstract class BaseEvent {
     public HttpServletRequest request;
 
     /**
+     * The param
+     */
+    public Map<String, String> param;
+
+
+    /**
      * Instantiates a new Base event.
      *
      * @param request the request
@@ -22,6 +28,19 @@ public abstract class BaseEvent {
     protected BaseEvent(HttpServletRequest request) {
         this.request = request;
         parse();
+    }
+
+    protected BaseEvent(Map<String, String> param) {
+        this.param = param;
+        parse();
+    }
+
+    protected String getParam(String key) {
+        if (null != request) {
+            return request.getParameter(key);
+        }
+
+        return param.get(key);
     }
 
     /**

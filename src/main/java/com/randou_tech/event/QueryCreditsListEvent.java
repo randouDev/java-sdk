@@ -4,6 +4,7 @@ import com.randou_tech.RdException;
 import com.randou_tech.contract.BaseEvent;
 
 import javax.servlet.http.HttpServletRequest;
+import java.util.Map;
 
 /**
  * 积分明细查询事件
@@ -19,12 +20,15 @@ public class QueryCreditsListEvent extends BaseEvent {
         super(request);
     }
 
+    public QueryCreditsListEvent(Map<String, String> param) {
+        super(param);
+    }
 
     public void parse() throws RdException {
-        this.uid = request.getParameter("uid");
-        this.mall_no = request.getParameter("mall_no");
-        this.page = Integer.valueOf(request.getParameter("page"));
-        this.pageSize = Integer.valueOf(request.getParameter("pageSize"));
+        this.uid = getParam("uid");
+        this.mall_no = getParam("mall_no");
+        this.page = Integer.valueOf(getParam("page"));
+        this.pageSize = Integer.valueOf(getParam("pageSize"));
     }
 
     @Override
