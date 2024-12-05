@@ -132,7 +132,7 @@ final public class RdClient implements Client {
      * @param param
      * @return
      */
-    public WithHoldingEvent withHolding(Map<String, String> param) {
+    public WithHoldingEvent withHoldingWithParams(Map<String, String> param) {
         if (!signature.verify(creds, param)) {
             throw new RdException("verify fail");
         }
@@ -158,7 +158,7 @@ final public class RdClient implements Client {
      * @param param
      * @return
      */
-    public CreditsNotifyEvent creditsNotify(Map<String, String> param) {
+    public CreditsNotifyEvent creditsNotifyWithParams(Map<String, String> param) {
         if (!signature.verify(creds, param)) {
             throw new RdException("verify fail");
         }
@@ -184,7 +184,7 @@ final public class RdClient implements Client {
      * @param param
      * @return
      */
-    public CreditsIssueEvent creditsIssue(Map<String, String> param) {
+    public CreditsIssueEvent creditsIssueWithParams(Map<String, String> param) {
         if (!signature.verify(creds, param)) {
             throw new RdException("verify fail");
         }
@@ -270,7 +270,7 @@ final public class RdClient implements Client {
      * @param param
      * @return
      */
-    public GoodsChargeEvent charge(Map<String, String> param) {
+    public GoodsChargeEvent chargeWithParams(Map<String, String> param) {
         if (!signature.verify(creds, param)) {
             throw new RdException("verify fail");
         }
@@ -296,7 +296,7 @@ final public class RdClient implements Client {
      * @param param
      * @return
      */
-    public GoodsChargeQueryEvent chargeQuery(Map<String, String> param) {
+    public GoodsChargeQueryEvent chargeQueryWithParams(Map<String, String> param) {
         if (!signature.verify(creds, param)) {
             throw new RdException("verify fail");
         }
@@ -323,7 +323,7 @@ final public class RdClient implements Client {
      * @param param
      * @return
      */
-    public QueryCreditsListEvent queryCreditsList(Map<String, String> param) {
+    public QueryCreditsListEvent queryCreditsListWithParams(Map<String, String> param) {
         if (!signature.verify(creds, param)) {
             throw new RdException("verify fail");
         }
@@ -351,7 +351,7 @@ final public class RdClient implements Client {
      * @param param
      * @return DrawingPrizeEvent
      */
-    public DrawingPrizeEvent drawingGameSubscription(Map<String, String> param) {
+    public DrawingPrizeEvent drawingGameSubscriptionWithParams(Map<String, String> param) {
         if (!signature.verify(creds, param)) {
             throw new RdException("verify fail");
         }
